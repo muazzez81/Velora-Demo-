@@ -6,11 +6,13 @@
 <title>VELORA AJANS</title>
 
 <style>
+
 body{
 margin:0;
 font-family:Arial;
-background:#0b0b0b;
+background:#0a0a0a;
 color:white;
+scroll-behavior:smooth;
 }
 
 header{
@@ -20,13 +22,14 @@ background:#111;
 padding:15px;
 display:flex;
 justify-content:space-between;
+align-items:center;
 z-index:1000;
 }
 
 header a{
 color:white;
-text-decoration:none;
 margin:10px;
+text-decoration:none;
 }
 
 .hero{
@@ -36,6 +39,7 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+animation:fadeIn 2s;
 }
 
 .btn{
@@ -46,10 +50,15 @@ margin:10px;
 border-radius:30px;
 text-decoration:none;
 font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
 }
 
 .section{
-padding:80px 20px;
+padding:90px 20px;
 text-align:center;
 }
 
@@ -63,13 +72,14 @@ justify-content:center;
 background:#151515;
 margin:15px;
 padding:30px;
-width:250px;
-border-radius:10px;
-transition:0.3s;
+width:260px;
+border-radius:15px;
+transition:0.4s;
 }
 
 .card:hover{
-transform:translateY(-10px);
+transform:translateY(-12px);
+box-shadow:0 0 20px #00ffd5;
 }
 
 footer{
@@ -77,6 +87,25 @@ background:#111;
 text-align:center;
 padding:30px;
 }
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
 </style>
 </head>
 
@@ -86,9 +115,9 @@ padding:30px;
 <h3>VELORA AJANS</h3>
 <div>
 <a href="#">Ana Sayfa</a>
-<a href="#">Hizmetler</a>
-<a href="#">Projeler</a>
-<a href="#">İletişim</a>
+<a href="#hizmet">Hizmetler</a>
+<a href="#projeler">Projeler</a>
+<a href="#iletisim">İletişim</a>
 </div>
 </header>
 
@@ -104,12 +133,12 @@ WhatsApp Teklif Al
 </a>
 </section>
 
-<section class="section">
+<section id="hizmet" class="section">
 <h2>Hizmetlerimiz</h2>
 <div class="cards">
 <div class="card">Web Tasarım</div>
-<div class="card">Sosyal Medya</div>
-<div class="card">Google Reklam</div>
+<div class="card">Sosyal Medya Yönetimi</div>
+<div class="card">Google Reklamları</div>
 <div class="card">Kurumsal Kimlik</div>
 </div>
 </section>
@@ -117,19 +146,34 @@ WhatsApp Teklif Al
 <section id="projeler" class="section">
 <h2>Projelerimiz</h2>
 <div class="cards">
-<div class="card">Firma A Web Sitesi</div>
+<div class="card">Firma A - Web Sitesi</div>
 <div class="card">CSR Güvenlik Kamera</div>
-<div class="card">Kurumsal Tanıtım</div>
+<div class="card">Kurumsal Tanıtım Sitesi</div>
 </div>
+</section>
+
+<section id="iletisim" class="section">
+<h2>İletişim</h2>
+<p>Projenizi konuşmak için hemen yazın.</p>
+
+<a class="btn"
+href="https://wa.me/905347158990?text=Merhaba%20Velora%20Ajans%20ile%20iletişime%20geçmek%20istiyorum">
+WhatsApp'tan Yaz
+</a>
 </section>
 
 <footer>
 <p>
-Designed by 
+Designed by
 <a href="https://muazzez81.github.io/Velora-Demo-" 
 style="color:#00ffd5;">VELORA AJANS</a>
 </p>
 </footer>
+
+<a class="whatsapp"
+href="https://wa.me/905347158990?text=Merhaba%20Velora%20Ajans">
+WhatsApp
+</a>
 
 </body>
 </html>
