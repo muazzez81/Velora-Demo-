@@ -25,6 +25,9 @@ header a{margin:0 10px;}
 .card p{font-size:14px;color:#ccc;}
 footer{background:#111;text-align:center;padding:30px;}
 .whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px 20px;border-radius:50px;font-weight:bold;cursor:pointer;}
+
+/* PROJE BAŞLIĞI GİZLEME */
+#projeler h2 {display:none;}
 </style>
 </head>
 
@@ -40,7 +43,6 @@ footer{background:#111;text-align:center;padding:30px;}
 </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
 <h1>İşinizi Dijitale Taşıyoruz</h1>
 <p>Web Site • Reklam • Marka Gücü</p>
@@ -48,7 +50,6 @@ footer{background:#111;text-align:center;padding:30px;}
 <div class="btn" onclick="sendLead('Demo Talebi')">Hızlı Demo</div>
 </section>
 
-<!-- HİZMETLER -->
 <section id="hizmet" class="section">
 <h2>Hizmetlerimiz</h2>
 <div class="cards">
@@ -59,33 +60,27 @@ footer{background:#111;text-align:center;padding:30px;}
 </div>
 </section>
 
-<!-- PROJELER -->
 <section id="projeler" class="section">
-<h2>Projelerimiz</h2>
 <div class="cards">
 
-<!-- PROJE 1 -->
 <div class="card" onclick="window.open('https://xn--dzcefnd-n2a53a6fcb.com.tr/','_blank');sendLead('Düzce Fındık Kurumsal Web Sitesi');">
 <img src="https://via.placeholder.com/260x150?text=D%C3%BCzce+F%C4%B1nd%C4%B1k" alt="Düzce Fındık">
 <h3>Düzce Fındık</h3>
 <p>Kurumsal Tanıtım Web Sitesi</p>
 </div>
 
-<!-- PROJE 2 -->
 <div class="card" onclick="window.open('https://muazzez81.github.io/findik-dukkani/','_blank');sendLead('Fındık Sepeti Web Sitesi');">
 <img src="https://via.placeholder.com/260x150?text=F%C4%B1nd%C4%B1k+Sepeti" alt="Fındık Sepeti">
 <h3>FINDIK SEPETİ</h3>
 <p>Modern Web Tasarım</p>
 </div>
 
-<!-- PROJE 3 -->
 <div class="card" onclick="window.open('https://xn--csrgvenlikkameras-52b43h.com/','_blank');sendLead('CSR Güvenlik Kamera Web Sitesi');">
 <img src="https://via.placeholder.com/260x150?text=CSR+Kamera" alt="CSR Kamera">
 <h3>CSR Güvenlik Kamera</h3>
 <p>Kurumsal Tanıtım Sitesi</p>
 </div>
 
-<!-- PROJE 4 - GITHUB -->
 <div class="card" onclick="window.open('https://muazzez81.github.io/Velora-aJans/','_blank');sendLead('Velora Ajans GitHub');">
 <img src="https://via.placeholder.com/260x150?text=Velora+GitHub" alt="Velora GitHub">
 <h3>VELORA AJANS</h3>
@@ -95,7 +90,6 @@ footer{background:#111;text-align:center;padding:30px;}
 </div>
 </section>
 
-<!-- İLETİŞİM -->
 <section id="iletisim" class="section">
 <h2>İletişim</h2>
 <p>Projenizi konuşmak için hemen yazın.</p>
@@ -116,7 +110,6 @@ const demoLink = "https://muazzez81.github.io/Velora-Demo-";
 function sendLead(type){
   const message = `🚀 Yeni Müşteri\nTalep: ${type}\nDemo: ${demoLink}\nTarih: ${new Date().toLocaleString()}`;
   
-  // CRM kaydı
   axios.post(crmEndpoint,{
     talep: type,
     tarih: new Date().toISOString(),
@@ -125,7 +118,6 @@ function sendLead(type){
   .then(()=>console.log("CRM kaydedildi"))
   .catch(()=>console.log("CRM hatası"));
 
-  // WhatsApp
   window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
 }
 </script>
