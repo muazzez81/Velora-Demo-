@@ -184,3 +184,35 @@ Tarih: ${new Date().toLocaleString()}`;
 
 </body>
 </html>
+<script>
+const form = document.getElementById('leadForm');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const data = {
+    İsim: form.isim.value,
+    Telefon: form.telefon.value,
+    "Hizmet Talebi": form.hizmet.value,
+    Tarih: new Date().toLocaleString()
+  };
+
+  // ✅ https://api.sheetbest.com/sheets/18aaa92a-71c0-4aed-a5e8-c58259ebe273
+  const sheetUrl = 'https://api.sheetbest.com/sheets/18aaa92a-71c0-4aed-a5e8-c58259ebe273';
+
+  await fetch(sheetUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+
+  // ✅ 905347158990
+  const whatsappMessage = `Merhaba, benim adım ${data.İsim}. ${data["Hizmet Talebi"]} hakkında bilgi almak istiyorum.`;
+  window.open(`https://wa.me/905347158990?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+
+  form.reset();
+});
+</script>
+
+</body>
+</html>
