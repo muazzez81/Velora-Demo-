@@ -75,3 +75,6 @@ footer a:hover{
 .signature a:hover{
   color:#fff;
 }
+#projeler h2 {
+  display: none;
+}
