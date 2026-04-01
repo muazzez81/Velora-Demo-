@@ -3,28 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VELORA AJANS | FULL AUTO-CRM</title>
+
+<title>VELORA AJANS | FULL AUTO CRM</title>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial,sans-serif;background:#0a0a0a;color:white;scroll-behavior:smooth;}
+
+body{
+font-family:Arial;
+background:#0a0a0a;
+color:white;
+scroll-behavior:smooth;
+}
+
 a{text-decoration:none;color:white;}
-header{position:fixed;width:100%;background:#111;padding:15px;display:flex;justify-content:space-between;align-items:center;z-index:1000;}
+
+header{
+position:fixed;
+width:100%;
+background:#111;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+}
+
 header a{margin:0 10px;}
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;animation:fadeIn 2s;}
-.btn{padding:15px 30px;background:#00ffd5;color:black;margin:10px;border-radius:30px;font-weight:bold;transition:0.3s;cursor:pointer;}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.btn{
+padding:15px 30px;
+background:#00ffd5;
+color:black;
+margin:10px;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
 .btn:hover{transform:scale(1.1);}
-.section{padding:90px 20px;text-align:center;}
-.cards{display:flex;flex-wrap:wrap;justify-content:center;}
-.card{background:#151515;margin:15px;padding:30px;width:260px;border-radius:15px;transition:0.4s;text-align:center;cursor:pointer;}
-.card:hover{transform:translateY(-12px);box-shadow:0 0 20px #00ffd5;}
-footer{background:#111;text-align:center;padding:30px;}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px 20px;border-radius:50px;font-weight:bold;box-shadow:0 0 15px rgba(0,0,0,.4);transition:0.3s;cursor:pointer;}
-.whatsapp:hover{transform:scale(1.1);}
-.popup-btn{position:fixed;bottom:100px;right:20px;background:#00ffd5;color:black;padding:15px 20px;border-radius:50px;font-weight:bold;box-shadow:0 0 15px rgba(0,0,0,.4);transition:0.3s;cursor:pointer;}
-.popup-btn:hover{transform:scale(1.1);}
-@keyframes fadeIn{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+
+.section{
+padding:90px 20px;
+text-align:center;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.card{
+background:#151515;
+margin:15px;
+padding:30px;
+width:260px;
+border-radius:15px;
+cursor:pointer;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 20px #00ffd5;
+}
+
+footer{
+background:#111;
+text-align:center;
+padding:30px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px 20px;
+border-radius:50px;
+font-weight:bold;
+cursor:pointer;
+}
 </style>
 </head>
 
@@ -40,91 +112,111 @@ footer{background:#111;text-align:center;padding:30px;}
 </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
 <h1>İşinizi Dijitale Taşıyoruz</h1>
-<p>Modern Web Siteleri • Reklam • Marka Gücü</p>
-<div class="btn" id="whatsappBtn">WhatsApp Teklif Al</div>
-<div class="btn" id="demoPopupBtn">Hızlı Demo</div>
+<p>Web Site • Reklam • Marka Gücü</p>
+
+<div class="btn" onclick="sendLead('Genel Teklif')">
+WhatsApp Teklif Al
+</div>
+
+<div class="btn" onclick="sendLead('Demo Talebi')">
+Hızlı Demo
+</div>
 </section>
 
+<!-- HİZMETLER -->
 <section id="hizmet" class="section">
 <h2>Hizmetlerimiz</h2>
+
 <div class="cards">
-<div class="card" onclick="sendAutoCRM('Web Tasarım')">Web Tasarım</div>
-<div class="card" onclick="sendAutoCRM('Sosyal Medya')">Sosyal Medya Yönetimi</div>
-<div class="card" onclick="sendAutoCRM('Google Reklam')">Google Reklamları</div>
-<div class="card" onclick="sendAutoCRM('Kurumsal Kimlik')">Kurumsal Kimlik</div>
+<div class="card" onclick="sendLead('Web Tasarım')">Web Tasarım</div>
+<div class="card" onclick="sendLead('Sosyal Medya')">Sosyal Medya Yönetimi</div>
+<div class="card" onclick="sendLead('Google Reklam')">Google Reklamları</div>
+<div class="card" onclick="sendLead('Kurumsal Kimlik')">Kurumsal Kimlik</div>
 </div>
+
 </section>
 
+<!-- PROJELER -->
 <section id="projeler" class="section">
 <h2>Projelerimiz</h2>
+
 <div class="cards">
-<div class="card" onclick="sendAutoCRM('Firma A - Web Sitesi')">Firma A - Web Sitesi</div>
-<div class="card" onclick="sendAutoCRM('CSR Güvenlik Kamera')">CSR Güvenlik Kamera</div>
-<div class="card" onclick="sendAutoCRM('Kurumsal Tanıtım Sitesi')">Kurumsal Tanıtım Sitesi</div>
+<div class="card" onclick="sendLead('Firma A Web Sitesi')">Firma A Web Sitesi</div>
+<div class="card" onclick="sendLead('CSR Güvenlik Kamera')">CSR Güvenlik Kamera</div>
+<div class="card" onclick="sendLead('Kurumsal Tanıtım')">Kurumsal Tanıtım</div>
 </div>
+
 </section>
 
+<!-- İLETİŞİM -->
 <section id="iletisim" class="section">
 <h2>İletişim</h2>
 <p>Projenizi konuşmak için hemen yazın.</p>
-<div class="btn" id="whatsappContactBtn">WhatsApp'tan Yaz</div>
+
+<div class="btn" onclick="sendLead('İletişim Talebi')">
+WhatsApp'tan Yaz
+</div>
 </section>
 
 <footer>
-<p>Designed by <a href="https://muazzez81.github.io/Velora-Demo-" style="color:#00ffd5;">VELORA AJANS</a></p>
+<p>
+Designed by
+<a href="https://muazzez81.github.io/Velora-Demo-" style="color:#00ffd5;">
+VELORA AJANS
+</a>
+</p>
 </footer>
 
-<a class="whatsapp" id="whatsappFixedBtn">WhatsApp</a>
+<div class="whatsapp" onclick="sendLead('Sabit WhatsApp')">
+WhatsApp
+</div>
 
 <script>
-// ================================
-// AYARLAR
-const whatsappNumber = "905347158990"; // Kendi numaran
-const demoLink = "https://muazzez81.github.io/Velora-Demo-";
-const crmEndpoint = 'https://sheet.best/api/sheets/YOUR_SHEET_ID'; // Sheet.best veya Airtable
 
-// Hatırlatma mesajları (gün bazlı)
-const reminders = [
-  {day:0, text:"Merhaba {{isim}}, Velora Ajans demo linki: {{demo_link}}"},
-  {day:2, text:"Merhaba {{isim}}, demo linkini incelediniz mi?"},
-  {day:5, text:"Merhaba {{isim}}, hatırlatma: demo web sitesi hazır!"},
-  {day:7, text:"Son şans! Merhaba {{isim}}, demo web sitesi hala hazır. Cevap verirseniz başlatabiliriz."}
-];
+/* =========================
+   AYARLAR
+========================= */
 
-// ================================
-// Fonksiyonlar
-function openWhatsApp(message){
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
+const whatsappNumber = "905347158990";
+
+const crmEndpoint =
+"https://api.sheetbest.com/sheets/18aaa92a-71c0-4aed-a5e8-c58259ebe273";
+
+const demoLink =
+"https://muazzez81.github.io/Velora-Demo-";
+
+/* =========================
+   LEAD SİSTEMİ
+========================= */
+
+function sendLead(type){
+
+const message =
+`🚀 Yeni Müşteri
+Talep: ${type}
+Demo: ${demoLink}
+Tarih: ${new Date().toLocaleString()}`;
+
+/* CRM KAYIT */
+axios.post(crmEndpoint,{
+talep:type,
+tarih:new Date().toISOString(),
+site:"Velora Ajans"
+})
+.then(()=>console.log("CRM kaydedildi"))
+.catch(()=>console.log("CRM hata"));
+
+/* WHATSAPP */
+window.open(
+`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+"_blank"
+);
+
 }
 
-function sendAutoCRM(name){
-    reminders.forEach(rem=>{
-        setTimeout(()=>{
-            let msg = rem.text.replace('{{isim}}', name).replace('{{demo_link}}', demoLink);
-            openWhatsApp(msg);
-            axios.post(crmEndpoint, {name:name,message:msg,timestamp:new Date().toISOString()})
-            .then(res=>console.log("CRM kaydı:",res.data))
-            .catch(err=>console.log("CRM hatası:",err));
-        }, rem.day*24*60*60*1000);
-    });
-}
-
-// ================================
-// Butonlar
-document.getElementById('whatsappBtn').onclick = ()=>{
-    sendAutoCRM("Genel Teklif");
-}
-document.getElementById('demoPopupBtn').onclick = ()=>{
-    sendAutoCRM("Popup Demo");
-}
-document.getElementById('whatsappContactBtn').onclick = ()=>{
-    sendAutoCRM("İletişim");
-}
-document.getElementById('whatsappFixedBtn').onclick = ()=>{
-    sendAutoCRM("Sabit Buton");
-}
 </script>
 
 </body>
