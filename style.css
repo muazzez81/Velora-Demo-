@@ -27,3 +27,12 @@ nav .menu li a:hover { color: #ff4b2b; }
 #contact-form button:hover { background: #ff6b4b; }
 
 footer { background: #222; color: #fff; text-align: center; padding: 20px; margin-top: 50px; }
+footer a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+footer a:hover{
+  color:#ff4b2b;
+}
