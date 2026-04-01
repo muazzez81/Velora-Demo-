@@ -197,7 +197,7 @@ form.addEventListener('submit', async (e) => {
     Tarih: new Date().toLocaleString()
   };
 
-  // ✅ 
+  // ✅ const sheetUrl = 'https://api.sheetbest.com/sheets/18aaa92a-71c0-4aed-a5e8-c58259ebe273';
   const sheetUrl = 'https://api.sheetbest.com/sheets/18aaa92a-71c0-4aed-a5e8-c58259ebe273';
 
   await fetch(sheetUrl, {
@@ -206,7 +206,7 @@ form.addEventListener('submit', async (e) => {
     body: JSON.stringify(data)
   });
 
-  // ✅ 
+  // ✅ 905347158990
   const whatsappMessage = `Merhaba, benim adım ${data.İsim}. ${data["Hizmet Talebi"]} hakkında bilgi almak istiyorum.`;
   window.open(`https://wa.me/905347158990?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
 
